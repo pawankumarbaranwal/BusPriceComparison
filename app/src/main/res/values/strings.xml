@@ -1,0 +1,854 @@
+<resources>
+    <string name="app_name">BusPriceComparison</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_search_buses">Search Buses</string>
+    <string name="title_destination_city">Select Destination city</string>
+    <string name="title_source_city">Search Source city</string>
+    <string name="date_of_journey">Date of Journey</string>
+
+    <string-array name="cities_array">
+            <item>Ahmedabad</item>
+            <item>Bangalore</item>
+            <item>Chennai</item>
+            <item>Coimbatore</item>
+            <item>Goa</item>
+            <item>Hyderabad</item>
+            <item>Indore</item>
+            <item>Jodhpur</item>
+            <item>Madurai</item>
+            <item>Mangalore</item>
+            <item>Mumbai</item>
+            <item>Nasik</item>
+            <item>Pondicherry</item>
+            <item>Pune</item>
+            <item>Shirdi</item>
+            <item>Vijayawada</item>
+            <item>Abu Road</item>
+            <item>Adoni</item>
+            <item>Adoor</item>
+            <item>Aduthurai</item>
+            <item>Ahmedabad</item>
+            <item>Ahmednagar</item>
+            <item>Ahore</item>
+            <item>Ainapur</item>
+            <item>Ajekar</item>
+            <item>Alapuzha</item>
+            <item>Alathur (Palakkad)</item>
+            <item>Alathur (TN)</item>
+            <item>Alleppey</item>
+            <item>Almatti</item>
+            <item>Aluva</item>
+            <item>Ambalapuzha</item>
+            <item>Ambasamudram</item>
+            <item>Ambur</item>
+            <item>Amingad</item>
+            <item>Amminahalli (Sirsi)</item>
+            <item>Ampar</item>
+            <item>Anakapalle</item>
+            <item>Anakara</item>
+            <item>Anand</item>
+            <item>Anandapura</item>
+            <item>Anantapur (Anantapuram)</item>
+            <item>Anantapur (Bypass)</item>
+            <item>Anantpur</item>
+            <item>Anegudde</item>
+            <item>Angamaly</item>
+            <item>Ankali (KN)</item>
+            <item>Ankleshwar</item>
+            <item>Ankleshwar (Bypass)</item>
+            <item>Ankola</item>
+            <item>Annavaram</item>
+            <item>Annigeri</item>
+            <item>Annur</item>
+            <item>Areecode</item>
+            <item>Arehole</item>
+            <item>Aroor</item>
+            <item>Arumuganeri</item>
+            <item>Aruppukottai</item>
+            <item>Athani (KN)</item>
+            <item>Attingal</item>
+            <item>Aurangabad</item>
+            <item>Authoor</item>
+            <item>Aversa</item>
+            <item>Avinashi</item>
+            <item>Ayyampet</item>
+            <item>B.C Road</item>
+            <item>Badami</item>
+            <item>Badiyadka</item>
+            <item>Badvel</item>
+            <item>Bagalkot</item>
+            <item>Bailhongal</item>
+            <item>Bailur</item>
+            <item>Baindur</item>
+            <item>Bajagoli</item>
+            <item>Bajpe</item>
+            <item>Balehonnur</item>
+            <item>Banaganapalli</item>
+            <item>Banahatti</item>
+            <item>Banavasi</item>
+            <item>Bandala (Sirsi)</item>
+            <item>Bangalore</item>
+            <item>Bangalore Sight Seeing</item>
+            <item>Bangalore Sight Seeing (Half Day)</item>
+            <item>Bannady</item>
+            <item>Bapatla</item>
+            <item>Barkur</item>
+            <item>Basavakalyan</item>
+            <item>Basavana Bagewadi</item>
+            <item>Basrur</item>
+            <item>Batlagundu</item>
+            <item>Begar</item>
+            <item>Belgaum</item>
+            <item>Belgaum (Bypass)</item>
+            <item>Bellary</item>
+            <item>Bellary (Bye Pass)</item>
+            <item>Belman</item>
+            <item>Belthangady</item>
+            <item>Belur</item>
+            <item>Belvai</item>
+            <item>Bhadravathi (KN)</item>
+            <item>Bhairumbe</item>
+            <item>Bhalki</item>
+            <item>Bharuch</item>
+            <item>Bharuch (Bypass)</item>
+            <item>Bhatkal</item>
+            <item>Bhavani</item>
+            <item>Bhimadolu</item>
+            <item>Bhinmal</item>
+            <item>Bidar</item>
+            <item>Bidarugod</item>
+            <item>Bidkalkatte</item>
+            <item>Bijadi</item>
+            <item>Bijapur (KN)</item>
+            <item>Bijoor</item>
+            <item>Bijur</item>
+            <item>Bilagi</item>
+            <item>Brahmavara</item>
+            <item>Byadagi</item>
+            <item>Bylakuppe</item>
+            <item>Byndoor</item>
+            <item>Calicut</item>
+            <item>Canacona</item>
+            <item>Chalakudy</item>
+            <item>Challakere</item>
+            <item>Chalode</item>
+            <item>Changanassery</item>
+            <item>Channagiri</item>
+            <item>Chavadi</item>
+            <item>Chebrolu</item>
+            <item>Chelari</item>
+            <item>Chengannur</item>
+            <item>Chennai</item>
+            <item>Cherakala</item>
+            <item>Cherthala</item>
+            <item>Cheruvathur</item>
+            <item>Chidambaram</item>
+            <item>Chikkodi</item>
+            <item>Chilakaluripeta</item>
+            <item>Chilamkur</item>
+            <item>Chingavanam</item>
+            <item>Chinnamanur</item>
+            <item>Chirala</item>
+            <item>Chitradurga</item>
+            <item>Chitradurga (Bypass)</item>
+            <item>Chittoor (AP)</item>
+            <item>Chittoor-Kundapura (KN)</item>
+            <item>Chittor (RJ)</item>
+            <item>Cochin Munnar Thekkady (Package)</item>
+            <item>Cochin/Ernakulam</item>
+            <item>Cochin/Ernakulam (Bypass)</item>
+            <item>Coimbatore</item>
+            <item>Coimbatore (Bypass)</item>
+            <item>Coonoor</item>
+            <item>Coorg</item>
+            <item>Coorg (Package)</item>
+            <item>Covai Market</item>
+            <item>Cucolium</item>
+            <item>Cuddalore</item>
+            <item>Cumbum (TN)</item>
+            <item>Dandeli</item>
+            <item>Darapuram</item>
+            <item>Davangere</item>
+            <item>Davangere (Bypass)</item>
+            <item>De Sai Camp</item>
+            <item>Deralakatte</item>
+            <item>Devakottai</item>
+            <item>Devdurga</item>
+            <item>Devipattinam</item>
+            <item>Dharmapuri</item>
+            <item>Dharmasthala</item>
+            <item>Dharwad</item>
+            <item>Dharwad (Bypass)</item>
+            <item>Dindigal</item>
+            <item>Dindigul</item>
+            <item>Dindigul (Bypass)</item>
+            <item>Doopadakatte</item>
+            <item>Draksharamam</item>
+            <item>Dubacherla</item>
+            <item>Echur</item>
+            <item>Edappal</item>
+            <item>Edappally</item>
+            <item>Edarikode</item>
+            <item>Edur</item>
+            <item>Ellapur</item>
+            <item>Eluru</item>
+            <item>Erattupetta</item>
+            <item>Erode</item>
+            <item>Erode (Bypass)</item>
+            <item>Erravaram</item>
+            <item>Erumely</item>
+            <item>Ettumanoor</item>
+            <item>Gadag</item>
+            <item>Gajendragad</item>
+            <item>Gangawati</item>
+            <item>Gangolli</item>
+            <item>Ganjimatt</item>
+            <item>Gannavaram</item>
+            <item>Gerusoppa</item>
+            <item>Goa</item>
+            <item>Goa Package</item>
+            <item>Gobi</item>
+            <item>Gobichettipalayam</item>
+            <item>Gokak</item>
+            <item>Gokarna</item>
+            <item>Gol Gumbaz (Bijapur)</item>
+            <item>Goliangadi</item>
+            <item>Gonikoppal</item>
+            <item>Gooty</item>
+            <item>Gudalur</item>
+            <item>Gudalur(Cumbum)</item>
+            <item>Gudur</item>
+            <item>Guduru</item>
+            <item>Gulapura</item>
+            <item>Gulbarga</item>
+            <item>Guledgudda</item>
+            <item>Gundlupet</item>
+            <item>Guntur</item>
+            <item>Gurupura</item>
+            <item>Guruvayankere</item>
+            <item>Guruvayoor</item>
+            <item>Hagaribommanahalli</item>
+            <item>Halady</item>
+            <item>Haldipur</item>
+            <item>Haleangadi</item>
+            <item>Halekatte</item>
+            <item>Haliyal</item>
+            <item>Hampi</item>
+            <item>Hanuman Junction</item>
+            <item>Harihar (KN)</item>
+            <item>Harihara (Bypass)</item>
+            <item>Hariharapura</item>
+            <item>Haripad</item>
+            <item>Harogolige</item>
+            <item>Harpanahalli</item>
+            <item>Hassan</item>
+            <item>Hatti</item>
+            <item>Haveri</item>
+            <item>Hebri</item>
+            <item>Hemmadi</item>
+            <item>Himmath Nagar</item>
+            <item>Hiriadka</item>
+            <item>Honnali</item>
+            <item>Honnavar</item>
+            <item>Horanadu</item>
+            <item>Hosanagara</item>
+            <item>Hosangadi</item>
+            <item>Hosmar</item>
+            <item>Hospet</item>
+            <item>Hospet (Bypass)</item>
+            <item>Hosur</item>
+            <item>Hubli</item>
+            <item>Hubli (Bypass)</item>
+            <item>Humcha</item>
+            <item>Humnabad</item>
+            <item>Hungund</item>
+            <item>Hungund (Bye Pass)</item>
+            <item>Hunsemakki</item>
+            <item>Hunsur</item>
+            <item>Hutgar</item>
+            <item>Huvinahadagali</item>
+            <item>Huvinahippargi</item>
+            <item>Hyderabad</item>
+            <item>Ichalkaranji</item>
+            <item>Ilayangudi</item>
+            <item>Ilkal</item>
+            <item>Ilkal (Bypass)</item>
+            <item>Indore</item>
+            <item>Irinjalakuda</item>
+            <item>Iritty</item>
+            <item>Jadcherla</item>
+            <item>Jadkal</item>
+            <item>Jaggampeta</item>
+            <item>Jaipur (KN)</item>
+            <item>Jaisinghpur</item>
+            <item>Jalore</item>
+            <item>Jamkhandi</item>
+            <item>Jarikatte</item>
+            <item>Jaysingpur</item>
+            <item>Jedcherla</item>
+            <item>Jevargi</item>
+            <item>Jindal</item>
+            <item>Jodhpur</item>
+            <item>Kadapa</item>
+            <item>Kadayanallur</item>
+            <item>Kadra</item>
+            <item>Kadri</item>
+            <item>Kaduthuruthi</item>
+            <item>kagwad</item>
+            <item>Kaiga</item>
+            <item>Kaikamba</item>
+            <item>Kakkad</item>
+            <item>Kalady</item>
+            <item>Kalahasthi</item>
+            <item>Kalahasti (Bypass)</item>
+            <item>Kalamassery</item>
+            <item>Kalasa</item>
+            <item>Kalghatgi</item>
+            <item>Kalikkavilai</item>
+            <item>Kaliyakkavilai</item>
+            <item>Kalladka</item>
+            <item>Kaloor</item>
+            <item>Kalpetta</item>
+            <item>Kamatagi</item>
+            <item>Kambadakone</item>
+            <item>Kammardi</item>
+            <item>Kampli</item>
+            <item>Kanangad</item>
+            <item>Kanchipuram</item>
+            <item>Kandlur</item>
+            <item>Kandukuru</item>
+            <item>Kangayam</item>
+            <item>Kanhangad</item>
+            <item>Kanigiri</item>
+            <item>Kanjikode</item>
+            <item>Kanjirapally</item>
+            <item>Kannur</item>
+            <item>Kansur</item>
+            <item>Kanyakumari</item>
+            <item>Kapu</item>
+            <item>Karad</item>
+            <item>Karad (Bypass)</item>
+            <item>Karaikal</item>
+            <item>Karaikudi</item>
+            <item>Karatagi</item>
+            <item>Karkala</item>
+            <item>Karki</item>
+            <item>Karunagapilly</item>
+            <item>Karunagappally</item>
+            <item>Karur</item>
+            <item>Karur (Bypass)</item>
+            <item>Karwar (KN)</item>
+            <item>Karwara (RJ)</item>
+            <item>Kasargode</item>
+            <item>Katapady</item>
+            <item>Kateel</item>
+            <item>Katgal</item>
+            <item>Kathipudi</item>
+            <item>Kattappana</item>
+            <item>Kaup</item>
+            <item>Kavalakki</item>
+            <item>Kavali</item>
+            <item>Kavali (Bypass)</item>
+            <item>Kavalkinar</item>
+            <item>Kavalkinaru</item>
+            <item>Kavoor</item>
+            <item>Kayalpatnam</item>
+            <item>Kayamkulam</item>
+            <item>Kazhakoottam</item>
+            <item>Kenjoor</item>
+            <item>Kerur</item>
+            <item>Khandala</item>
+            <item>Kim</item>
+            <item>Kinnigoli</item>
+            <item>Kirimanjeshwara</item>
+            <item>Kodai Road</item>
+            <item>Kodaikanal</item>
+            <item>Kodakara</item>
+            <item>Kodakara Vellikulangara Rd</item>
+            <item>Kodungallur</item>
+            <item>Koduvally</item>
+            <item>Koilyandy</item>
+            <item>Kokkarne</item>
+            <item>Kolapulli</item>
+            <item>Kolhapur</item>
+            <item>Kolhapur (Bypass)</item>
+            <item>Kollam</item>
+            <item>Kollur</item>
+            <item>Kolluru</item>
+            <item>Konaje</item>
+            <item>Konandur</item>
+            <item>Konnur</item>
+            <item>Koothatukulam</item>
+            <item>Koppa</item>
+            <item>Koppal</item>
+            <item>Koratty</item>
+            <item>Kota (KN)</item>
+            <item>Koteshwara</item>
+            <item>Kothamangalam</item>
+            <item>Kottakal</item>
+            <item>Kottara Chowki</item>
+            <item>Kottarakara</item>
+            <item>Kottayam</item>
+            <item>KOTTUR</item>
+            <item>Kotturu</item>
+            <item>Kovilpati</item>
+            <item>Kovilpatti (Bypass)</item>
+            <item>Koyilandy</item>
+            <item>Kozhancherry</item>
+            <item>Kozhikode</item>
+            <item>Krishnagiri</item>
+            <item>Krishnan Kovil</item>
+            <item>Kudligi</item>
+            <item>Kuduremukha</item>
+            <item>Kukanoor(Koppal)</item>
+            <item>Kukke Subramanya</item>
+            <item>kuknoor</item>
+            <item>Kulai</item>
+            <item>Kulapulli</item>
+            <item>Kulasekaram</item>
+            <item>Kulgeri Cross</item>
+            <item>Kulithalai</item>
+            <item>Kumbakonam</item>
+            <item>Kumbanad</item>
+            <item>Kumbashi</item>
+            <item>Kumbla</item>
+            <item>Kumily</item>
+            <item>Kumta</item>
+            <item>Kundapura (KN)</item>
+            <item>Kunnamangalam</item>
+            <item>Kunnamkulam</item>
+            <item>Kuravilangad</item>
+            <item>Kurnool</item>
+            <item>Kurugodu</item>
+            <item>Kurupanthara</item>
+            <item>Kuruppumthara</item>
+            <item>Kuruvilangadu</item>
+            <item>Kushal Nagar</item>
+            <item>kushtagi</item>
+            <item>Kushtagi (Bypass)</item>
+            <item>Kuthuparamba</item>
+            <item>Kuttikkanam</item>
+            <item>Kuttippuram</item>
+            <item>Kutuparamba</item>
+            <item>Laxmeswar</item>
+            <item>Lingsugur</item>
+            <item>Lokapur (KN)</item>
+            <item>Lonavala</item>
+            <item>Mabukala</item>
+            <item>Madanapalli</item>
+            <item>Madathukulam</item>
+            <item>Madikeri</item>
+            <item>Madurai</item>
+            <item>Mahalingpur</item>
+            <item>Mahe</item>
+            <item>Mahesana</item>
+            <item>Malappuram</item>
+            <item>Malegaon Bypass</item>
+            <item>Mallapur</item>
+            <item>Manamadurai</item>
+            <item>Mananthavady</item>
+            <item>Manchakal</item>
+            <item>Manchikere</item>
+            <item>Mandarthi</item>
+            <item>Mangalore</item>
+            <item>Mangalore (Bye Pass)</item>
+            <item>Manipal</item>
+            <item>Manjarapalke</item>
+            <item>Manjari</item>
+            <item>Manjeri</item>
+            <item>Manki</item>
+            <item>Mannuthy</item>
+            <item>Mantralayam</item>
+            <item>Manur</item>
+            <item>Manvi</item>
+            <item>Maravanthe</item>
+            <item>Maravoor</item>
+            <item>Marayur</item>
+            <item>Margoa Market</item>
+            <item>Mariyammanahalli</item>
+            <item>Marthandam</item>
+            <item>Martur</item>
+            <item>Maski</item>
+            <item>Masthikatte</item>
+            <item>Mattannur</item>
+            <item>Mavingundi</item>
+            <item>Mayiladuthurai</item>
+            <item>Medarametla</item>
+            <item>Melkar</item>
+            <item>Mettupalayam</item>
+            <item>Mhow Bypass</item>
+            <item>Miraj</item>
+            <item>Mirjan</item>
+            <item>Monipalli</item>
+            <item>Moodbidri</item>
+            <item>Moonupeedika</item>
+            <item>Muchur</item>
+            <item>Mudabidri</item>
+            <item>Muddanur</item>
+            <item>Muddebihal</item>
+            <item>Mudhol (KN)</item>
+            <item>Mudigere</item>
+            <item>Mudipu</item>
+            <item>Mudrady</item>
+            <item>Mudrangandi</item>
+            <item>Mukkam</item>
+            <item>Mulki</item>
+            <item>Mullikatte</item>
+            <item>Mumbai</item>
+            <item>Munavali</item>
+            <item>Mundakayam</item>
+            <item>Mundargi</item>
+            <item>Mundkur</item>
+            <item>Munirabad</item>
+            <item>Muniyal</item>
+            <item>Munnar</item>
+            <item>Muppavaram</item>
+            <item>Murari</item>
+            <item>Murnad</item>
+            <item>Murudeshwara</item>
+            <item>Muttagi Cross</item>
+            <item>Muttuchira</item>
+            <item>Muvattupuzha</item>
+            <item>mydukur</item>
+            <item>Mysore</item>
+            <item>Mysore /Ooty Package</item>
+            <item>Mysore Sight Seeing</item>
+            <item>N I T K</item>
+            <item>Nadiad</item>
+            <item>Nagapattinam</item>
+            <item>Nagar</item>
+            <item>Nagara</item>
+            <item>Nagercoil</item>
+            <item>Nagoor</item>
+            <item>Nagur</item>
+            <item>Naguru</item>
+            <item>Naidupeta</item>
+            <item>Naidupeta (Bypass)</item>
+            <item>Nakkapalli</item>
+            <item>Nallajerla</item>
+            <item>Namakkal</item>
+            <item>Namakkal (Bypass)</item>
+            <item>Nandikur</item>
+            <item>Nandipadu</item>
+            <item>Nandyala</item>
+            <item>Nanguneri</item>
+            <item>Nanjangud</item>
+            <item>Napokul</item>
+            <item>Naragund</item>
+            <item>Narasimharajapura (NR Pura)</item>
+            <item>Naravi</item>
+            <item>Narayanapuram</item>
+            <item>Nasik</item>
+            <item>Navalgund</item>
+            <item>Navi Mumbai</item>
+            <item>Navsari (Bypass)</item>
+            <item>Navunda</item>
+            <item>Nayakana Hatty</item>
+            <item>Nedungundram</item>
+            <item>Nelamangala</item>
+            <item>Nellai</item>
+            <item>Nellikar</item>
+            <item>Nellore</item>
+            <item>Nellore (Bypass)</item>
+            <item>Neralakatte</item>
+            <item>Nette</item>
+            <item>Neyveli</item>
+            <item>Neyyattinkara</item>
+            <item>Niddodi</item>
+            <item>Nidgundi</item>
+            <item>Nileshwaram</item>
+            <item>Nipani</item>
+            <item>Nitte</item>
+            <item>Nittur (SMG)</item>
+            <item>Oddanchatram</item>
+            <item>Ongole</item>
+            <item>Ooty</item>
+            <item>Ottapalam</item>
+            <item>ottappalam</item>
+            <item>Owk</item>
+            <item>Paakkad (Bypass)</item>
+            <item>Padubidri</item>
+            <item>Padukone</item>
+            <item>Paiga</item>
+            <item>Pala</item>
+            <item>Paladka ( KN )</item>
+            <item>Palakkad/Palghat</item>
+            <item>Palakkad/Palghat (Bypass)</item>
+            <item>Palani</item>
+            <item>Palanpur</item>
+            <item>Palarivattom</item>
+            <item>Pali (Rajasthan)</item>
+            <item>Palladam</item>
+            <item>Pallikere</item>
+            <item>Pamarru</item>
+            <item>Pandalam</item>
+            <item>Panoor</item>
+            <item>Panvel</item>
+            <item>Papanasam</item>
+            <item>Parad</item>
+            <item>Paramakudi</item>
+            <item>Parassala</item>
+            <item>Paravoor</item>
+            <item>Parchur</item>
+            <item>Paripally</item>
+            <item>Pariyaram</item>
+            <item>Parkala</item>
+            <item>Pathanamthitta</item>
+            <item>Pathanapuram</item>
+            <item>Pathiripala</item>
+            <item>Pattamadai</item>
+            <item>Pattikkad</item>
+            <item>Payyanur</item>
+            <item>Peermedu</item>
+            <item>Perinthalmanna</item>
+            <item>Periyakulam</item>
+            <item>Perla</item>
+            <item>Perumanallur</item>
+            <item>Perumbavoor</item>
+            <item>Perundurai</item>
+            <item>Pilarkhana</item>
+            <item>Piriyapatna</item>
+            <item>Pollachi</item>
+            <item>Pondicherry</item>
+            <item>Ponkunnam</item>
+            <item>Pottalpudur</item>
+            <item>Proddatur</item>
+            <item>Pudukkottai</item>
+            <item>Pulivendula</item>
+            <item>Puliyal</item>
+            <item>Puliyampatti</item>
+            <item>Puliyangudi</item>
+            <item>Pulla</item>
+            <item>Pumpwell (Mangalore)</item>
+            <item>Punalur</item>
+            <item>Pune</item>
+            <item>Punnapra</item>
+            <item>Puttur</item>
+            <item>Quilandy</item>
+            <item>R S Mangalam</item>
+            <item>Rabakavi</item>
+            <item>Raghihosalli (Sirsi)</item>
+            <item>Rahuri</item>
+            <item>Raichur</item>
+            <item>Rajahmundry</item>
+            <item>Rajapalayam</item>
+            <item>Ramanathapuram</item>
+            <item>Ramanattukara</item>
+            <item>Ramanguli</item>
+            <item>Ramdurg</item>
+            <item>Rameswaram</item>
+            <item>Ramnad</item>
+            <item>Ranebennur</item>
+            <item>Ranny</item>
+            <item>Ravulapalem</item>
+            <item>Rayachoti</item>
+            <item>Ripponpete</item>
+            <item>Ron</item>
+            <item>S.Konda (Singarayakonda)</item>
+            <item>Sacheripete</item>
+            <item>SAGAR</item>
+            <item>Sagara</item>
+            <item>Saibrakatte</item>
+            <item>Sakleshpur</item>
+            <item>Salem</item>
+            <item>Salem (Bypass)</item>
+            <item>Saligrama</item>
+            <item>Sampaje</item>
+            <item>Sampekatte</item>
+            <item>Sanderao</item>
+            <item>Sangli</item>
+            <item>Sankagiri</item>
+            <item>Sankarankovil</item>
+            <item>Sankeshwar</item>
+            <item>Santhekatte</item>
+            <item>Sastana</item>
+            <item>Satara</item>
+            <item>Satara (Bypass)</item>
+            <item>Sathyamangalam</item>
+            <item>Sattur</item>
+            <item>Saundatti</item>
+            <item>Shahapur</item>
+            <item>Shaktinagar</item>
+            <item>Shanishignapur (Bypass)</item>
+            <item>Shankaranarayana</item>
+            <item>Shikaripur</item>
+            <item>Shimoga</item>
+            <item>Shiraguppi</item>
+            <item>Shirali</item>
+            <item>Shirdi</item>
+            <item>Shirdi Package</item>
+            <item>Shiriyara</item>
+            <item>Shiroor</item>
+            <item>Shivganj</item>
+            <item>Shorapur</item>
+            <item>Shornur</item>
+            <item>Siddapur (Kundapur)</item>
+            <item>Siddapur (Sirsi)</item>
+            <item>Siddapura (KPR)</item>
+            <item>Siddhpur (GJ)</item>
+            <item>Sindagi</item>
+            <item>Sindhanur</item>
+            <item>Singampuneri</item>
+            <item>Sinnar</item>
+            <item>Siralkoppa</item>
+            <item>Sirguppa</item>
+            <item>Sirkazhi</item>
+            <item>Sirohi</item>
+            <item>Sirsi</item>
+            <item>Siruguppa</item>
+            <item>Sirwar</item>
+            <item>Sivagangai</item>
+            <item>Sivagiri</item>
+            <item>Sivakasi</item>
+            <item>Sonda (KN)</item>
+            <item>Soraba</item>
+            <item>Sorabha</item>
+            <item>Spic Nagar</item>
+            <item>Srikalahasti</item>
+            <item>Sringeri</item>
+            <item>Sriperumbudur</item>
+            <item>Srirangam</item>
+            <item>Srivilliputtur</item>
+            <item>Sullia</item>
+            <item>Sultanbathary</item>
+            <item>Sumerpur</item>
+            <item>Suntikoppa</item>
+            <item>Surapur</item>
+            <item>Surat</item>
+            <item>Surathkal</item>
+            <item>Surpur (KN)</item>
+            <item>Swaroopganj</item>
+            <item>T.Kallupatti</item>
+            <item>Tadepalligudem</item>
+            <item>Tadepalligudem (Bypass)</item>
+            <item>Takhatgarh</item>
+            <item>Talikoti</item>
+            <item>Taliparamba</item>
+            <item>Tallur</item>
+            <item>Talluru</item>
+            <item>Tangi</item>
+            <item>Tanguturu</item>
+            <item>Tanjore</item>
+            <item>Tanuku</item>
+            <item>Tarikere</item>
+            <item>TB Dam</item>
+            <item>Tenkasi</item>
+            <item>Thakkalai</item>
+            <item>Thalaguppa</item>
+            <item>Thalassery</item>
+            <item>Thalayolaparambu</item>
+            <item>Thallur</item>
+            <item>Thamarassery</item>
+            <item>Thampanoor</item>
+            <item>Thanjavur</item>
+            <item>Thekatte (Kundapur)</item>
+            <item>Thekkady</item>
+            <item>Thekkatte</item>
+            <item>Theni</item>
+            <item>Thirthahalli</item>
+            <item>Thirukadaiyur</item>
+            <item>Thirumangalam</item>
+            <item>Thirunallar</item>
+            <item>Thirupathur</item>
+            <item>Thiruthani</item>
+            <item>Thiruvalla</item>
+            <item>Thiruvananthapuram</item>
+            <item>Thiruvannamalai</item>
+            <item>Thiruvarur</item>
+            <item>Thisayanvilai</item>
+            <item>Thodupuzha</item>
+            <item>Thokkottu</item>
+            <item>Thoothukkudi</item>
+            <item>Thrippunithura</item>
+            <item>Thriprayar</item>
+            <item>Thrissur (Bypass)</item>
+            <item>Thrissur (Kerala)</item>
+            <item>Thuckalay</item>
+            <item>Tindivanam</item>
+            <item>Tiruchendur</item>
+            <item>Tirumangalam</item>
+            <item>Tirunelveli</item>
+            <item>Tirupati</item>
+            <item>Tirupati (Package)</item>
+            <item>Tirupur</item>
+            <item>Tirupur (Bypass)</item>
+            <item>Tirur (Edarikode)</item>
+            <item>Toranagallu</item>
+            <item>Trasi</item>
+            <item>Trichendur</item>
+            <item>Trichur</item>
+            <item>Trichy</item>
+            <item>Trikkaripur</item>
+            <item>Tripur (Bypass)</item>
+            <item>Trivandrum</item>
+            <item>Tuni</item>
+            <item>Tuticorin</item>
+            <item>Uchila</item>
+            <item>Udaipur (RJ)</item>
+            <item>Udangudi</item>
+            <item>Udumalaipettai</item>
+            <item>Udumalpet</item>
+            <item>Udupi</item>
+            <item>Udupi (Bypass)</item>
+            <item>Udyavara</item>
+            <item>Ugar (Budruk)</item>
+            <item>Ugar (Khurd)</item>
+            <item>Ujire</item>
+            <item>Ulavapadu</item>
+            <item>Unjha (GJ)</item>
+            <item>Uppinakote</item>
+            <item>Uppinangadi</item>
+            <item>Uppunda</item>
+            <item>Uthamapalayam</item>
+            <item>Vadakara</item>
+            <item>Vadakkanchery</item>
+            <item>Vadasserikkara</item>
+            <item>Vadodara (Baroda)</item>
+            <item>Vaikom</item>
+            <item>Valanchery</item>
+            <item>Valliyur</item>
+            <item>Valsad</item>
+            <item>Vamanjoor</item>
+            <item>Vandavasi</item>
+            <item>Vandiperiyar</item>
+            <item>Vandse</item>
+            <item>Vapi</item>
+            <item>Varanga</item>
+            <item>Vashi</item>
+            <item>Vasudevanallur</item>
+            <item>Vathalagundu</item>
+            <item>Vazhakulam</item>
+            <item>Vedachandur</item>
+            <item>Vedasandur</item>
+            <item>Veeravanallur</item>
+            <item>Velankanni</item>
+            <item>Vellore</item>
+            <item>Vellore (Bypass)</item>
+            <item>Venoor</item>
+            <item>Verna</item>
+            <item>Vettavalam</item>
+            <item>Vijayawada</item>
+            <item>Villupuram</item>
+            <item>Virajpet</item>
+            <item>Virudhachalam</item>
+            <item>Virudhunagar</item>
+            <item>Visakhapatnam (Vizag)</item>
+            <item>Vita</item>
+            <item>Vittla</item>
+            <item>Vythiri</item>
+            <item>Vytilla</item>
+            <item>Walayar</item>
+            <item>Wayanad</item>
+            <item>Yadthare</item>
+            <item>Yalburga</item>
+            <item>Yallapura</item>
+            <item>Yaragatti</item>
+            <item>Yedapadav</item>
+            <item>Yelamanchalli</item>
+            <item>Yellapur</item>
+            <item>Yermal</item>
+            <item>Yerraguntla</item>
+        </string-array>
+    <string name="title_activity_buses_with_fares">BusesWithFares</string>
+
+</resources>
