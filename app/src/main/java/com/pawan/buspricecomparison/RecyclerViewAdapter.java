@@ -9,46 +9,66 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.CustomerViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.BusViewHolder> {
 
-    private List<Customer> customerList;
+    private List<BusDetails> busDetailsList;
 
-    public RecyclerViewAdapter(List<Customer> customerList) {
-        this.customerList = customerList;
+    public RecyclerViewAdapter(List<BusDetails> busDetailsList) {
+        this.busDetailsList = busDetailsList;
     }
 
     @Override
     public int getItemCount() {
-        return customerList.size();
+        return busDetailsList.size();
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewAdapter.CustomerViewHolder holder, int position) {
-        Customer customer = customerList.get(position);
-        holder.customerId.setText(customer.getCustomerId());
-        holder.customerName.setText(customer.getCustomerName());
-        holder.customerPhoneNumber.setText(customer.getCustomerPhoneNumber());
+    public void onBindViewHolder(RecyclerViewAdapter.BusViewHolder holder, int position) {
+        BusDetails busDetails= busDetailsList.get(position);
+        holder.busTravellerName.setText(busDetails.getBusCompanyName());
+        holder.busTiming.setText(busDetails.getArrivalTime()+"-"+busDetails.getReachingTime());
+
+        holder.paytmDealer.setText(busDetails.getPaytmDealer());
+        holder.paytmPrice.setText(busDetails.getPaytmFare()+"");
+
+        holder.redbusDealer.setText(busDetails.getRedBusDealer());
+        holder.redbusPrice.setText(busDetails.getRedBusFare()+"");
+
+        holder.makemytripDealer.setText(busDetails.getMakeMyTripDealer());
+        holder.makemytripPrice.setText(busDetails.getMakeMyTripFare()+"");
+
     }
     @Override
-    public RecyclerViewAdapter.CustomerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerViewAdapter.BusViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.row, viewGroup, false);
-        return new CustomerViewHolder(itemView);
+        return new BusViewHolder(itemView);
     }
 
 
 
-    public static class CustomerViewHolder extends RecyclerView.ViewHolder {
+    public static class BusViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView customerId;
-        private TextView customerName;
-        private TextView customerPhoneNumber;
+        private TextView busTravellerName;
+        private TextView busTiming;
+        private TextView paytmDealer;
+        private TextView paytmPrice;
+        private TextView redbusDealer;
+        private TextView redbusPrice;
+        private TextView makemytripDealer;
+        private TextView makemytripPrice;
 
-        public CustomerViewHolder(View itemView) {
+        public BusViewHolder(View itemView) {
             super(itemView);
-            customerId=(TextView)itemView.findViewById(R.id.tvCustomerId);
-            customerName=(TextView)itemView.findViewById(R.id.tvCustomerName);
-            customerPhoneNumber=(TextView)itemView.findViewById(R.id.tvCustomerPhoneNumber);
+            busTravellerName=(TextView)itemView.findViewById(R.id.tv_bus_traveller_name);
+            busTiming=(TextView)itemView.findViewById(R.id.tv_bus_timing);
+            paytmDealer=(TextView)itemView.findViewById(R.id.tv_paytm_dealer);
+            paytmPrice=(TextView)itemView.findViewById(R.id.tv_paytm_price);
+            redbusDealer=(TextView)itemView.findViewById(R.id.tv_redbus_dealer);
+            redbusPrice=(TextView)itemView.findViewById(R.id.tv_redbus_price);
+            makemytripDealer=(TextView)itemView.findViewById(R.id.tv_makemytrip_dealer);
+            makemytripPrice=(TextView)itemView.findViewById(R.id.tv_makemytrip_price);
+            //  arrivalTime=(TextView)itemView.findViewById(R.id.tvArrivalTime);
         }
     }
 }

@@ -1,32 +1,89 @@
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:layout_margin="4dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp">
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:padding="5dp">
 
-        <TextView
-            android:id="@+id/tvCustomerId"
-            android:layout_width="0dp"
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_bus_traveller_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Bus Traveller Name" />
+
+
+            <TextView
+                android:id="@+id/tv_bus_timing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:layout_marginLeft="2dp"
+                android:text="Bus Timings" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/tv_paytm_dealer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Paytm" />
+
+            <TextView
+                android:id="@+id/tv_redbus_dealer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="RedBus" />
+
+            <TextView
+                android:id="@+id/tv_makemytrip_dealer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MakeMyTrip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_paytm_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1200" />
+
+            <TextView
+                android:id="@+id/tv_redbus_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1290" />
+
+            <TextView
+                android:id="@+id/tv_makemytrip_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1300" />
+        </TableRow>
 
 
-        <TextView
-            android:id="@+id/tvCustomerName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-
-        <TextView
-            android:id="@+id/tvCustomerPhoneNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+    </TableLayout>
 </android.support.v7.widget.CardView>
 
