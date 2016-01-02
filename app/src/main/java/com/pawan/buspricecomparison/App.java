@@ -102,6 +102,8 @@ public class App extends Application
      */
     public static void cancelAllRequests(@NonNull final String tag)
     {
+
+
         if (getInstance().getVolleyRequestQueue() != null)
         {
             getInstance().getVolleyRequestQueue().cancelAll(tag);
