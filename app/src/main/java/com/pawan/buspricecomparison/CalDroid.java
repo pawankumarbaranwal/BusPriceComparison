@@ -46,7 +46,7 @@ public class CalDroid extends AppCompatActivity {
         final Intent intent =new Intent(this,SearchBuses.class);
         final CaldroidListener listener = new CaldroidListener() {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
             // Intent intent =new Intent(this,SearchBuses.class);;
             @Override

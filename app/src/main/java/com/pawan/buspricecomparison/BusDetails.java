@@ -18,6 +18,8 @@ public class BusDetails {
     private Float makeMyTripFare;
 
 
+    public BusDetails(){
+    }
     public BusDetails(String busId, String busName, String sourceCity,
                       String destinationCity, String arrivalTime, String reachingTime,
                       String busCompanyName,

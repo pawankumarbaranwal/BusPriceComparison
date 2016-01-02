@@ -5,6 +5,7 @@
     <string name="title_destination_city">Select Destination city</string>
     <string name="title_source_city">Search Source city</string>
     <string name="date_of_journey">Date of Journey</string>
+    <string name="registrationUrl">https://tickets.paytm.com/search</string>
 
     <string-array name="cities_array">
             <item>Ahmedabad</item>
@@ -850,5 +851,6 @@
             <item>Yerraguntla</item>
         </string-array>
     <string name="title_activity_buses_with_fares">BusesWithFares</string>
+        <string name="paytmPostUrl">https://tickets.paytm.com/search</string>
 
 </resources>

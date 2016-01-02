@@ -2,18 +2,29 @@ package com.pawan.buspricecomparison;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.pawan.pojo.PaytmBuses;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class SearchBuses extends AppCompatActivity implements View.OnClickListener {
@@ -21,7 +32,8 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
     private TextView source, destination, date;
     private ImageView swap;
     private Button search;
-
+    private Map<String, String> mParams = new HashMap<String, String>();
+    static final String sTag = "tagPay";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +83,7 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
         search=(Button)findViewById(R.id.btn_search);
 
         Date todaysDate = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         date.setText(sdf.format(todaysDate)+"");
 
         source.setOnClickListener(this);
@@ -101,13 +113,109 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
             source.setText(destination.getText()+"");
             destination.setText(temp);
         }
-        else if (view==date){
+           else if (view==date){
             intent =new Intent(this,CalDroid.class);
             startActivityForResult(intent, 3);
         }
         else if (view==search){
-            intent =new Intent(this,BusesWithFares.class);
-            startActivity(intent);
+
+            mParams.put("count","1");
+            mParams.put("date",date.getText()+"");
+            mParams.put("destination",destination.getText()+"");
+            mParams.put("source",source.getText()+"");
+
+
+
+
+            final GsonPostRequest<PaytmBuses[]> gsonPostRequest =
+                    ApiRequests.getPayObjectArrayWithPost
+                            (
+                                    new Response.Listener<PaytmBuses[]>() {
+                                        @Override
+                                        public void onResponse(PaytmBuses[] paytmBuses) {
+                                            // Deal with the DummyObject here
+                                            // mProgressBar.setVisibility(View.GONE);
+                                            // mContent.setVisibility(View.VISIBLE);
+                                            Log.i("SuccessMessage", "3" + paytmBuses);
+                                            List<PaytmBuses> paytmBusesList = Arrays.asList(paytmBuses);
+                                            for (int i=0;i<paytmBusesList.size();i++)
+                                            {
+                                             PaytmBuses p =paytmBusesList.get(i);
+                                                Log.i("PaytmBuses", "3333333" + p.getFare());
+                                                Log.i("PaytmBuses", "3333333" + p.getAvalableSeats());
+                                            }
+
+                                            //setData(paytmBuses);
+                                        }
+                                    }
+                                    /*new Response.Listener<PaytmBuses[]>() {
+                                        @Override
+                                        public void onResponse(Person[] response) {
+                                            List<PaytmBuses> paytmBuses = Arrays.asList(response);
+                                            // TODO deal with persons
+                                        }
+                                    }*/
+                                        ,
+                                    new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            // Deal with the error here
+                                            // mProgressBar.setVisibility(View.GONE);
+                                            //mErrorView.setVisibility(View.VISIBLE);
+                                            Log.i("ErrorMessage", "4");
+                                            //setToast(error);
+                                        }
+                                    }
+                                    ,
+                                    mParams,
+                                    getString(R.string.paytmPostUrl)
+                            );
+
+            App.addRequest(gsonPostRequest, "tagPay");
+        }else {
+            //Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
         }
+         /*
+            GsonPostRequest<BusDetailsStatus> gsonPostRequest =
+                    ApiRequests.getPayObjectArrayWithPost
+                            (
+                                    new Response.Listener<BusDetailsStatus>() {
+                                        @Override
+                                        public void onResponse(BusDetailsStatus busDetailsStatus) {
+                                            // Deal with the DummyObject here
+                                            // mProgressBar.setVisibility(View.GONE);
+                                            // mContent.setVisibility(View.VISIBLE);
+                                            setData(busDetailsStatus);
+                                        }
+                                    }
+                                    ,
+                                    new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            // Deal with the error here
+                                            // mProgressBar.setVisibility(View.GONE);
+                                            //mErrorView.setVisibility(View.VISIBLE);
+                                            // SetToast(error);
+                                        }
+                                    }
+                                    ,
+                                    mParams,
+                                    getString(R.string.registrationUrl)
+                            );
+
+
+            App.addRequest(gsonPostRequest, sTag);
+*/
+
+
+
+           // intent =new Intent(this,BusesWithFares.class);
+         //   startActivity(intent);
+        //}
+    }
+    private void setData(@NonNull final PaytmBuses paytmBuses) {
+        //mTitle.setText(dummyObject.getPayLoad().get(0).getId());
+       // Log.i("ErrorMessage", "2222" + paytmBuses.getStatusMessage());
+       // Toast.makeText(this, busDetailsStatus.getStatusMessage(), Toast.LENGTH_LONG).show();
     }
 }
