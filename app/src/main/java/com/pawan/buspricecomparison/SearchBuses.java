@@ -18,7 +18,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.pawan.pojo.PaytmBuses;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -97,6 +99,7 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view)
     {
         Intent intent;
+        final Intent paytmIntent =new Intent(this,BusesWithFares.class);
         if (view == source)
         {
             intent =new Intent(this,SourceCities.class);
@@ -145,16 +148,14 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
                                                 Log.i("PaytmBuses", "3333333" + p.getAvalableSeats());
                                             }
 
-                                            //setData(paytmBuses);
+                                            //setDataForPaytm(paytmBusesList);
+
+                                            //intent =new Intent(this,BusesWithFares.class);
+                                            paytmIntent.putExtra("PaytmBusesList", (Serializable) (setDataForPaytm(paytmBusesList)));
+                                               startActivity(paytmIntent);
+
                                         }
                                     }
-                                    /*new Response.Listener<PaytmBuses[]>() {
-                                        @Override
-                                        public void onResponse(Person[] response) {
-                                            List<PaytmBuses> paytmBuses = Arrays.asList(response);
-                                            // TODO deal with persons
-                                        }
-                                    }*/
                                         ,
                                     new Response.ErrorListener() {
                                         @Override
@@ -175,47 +176,22 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
         }else {
             //Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
         }
-         /*
-            GsonPostRequest<BusDetailsStatus> gsonPostRequest =
-                    ApiRequests.getPayObjectArrayWithPost
-                            (
-                                    new Response.Listener<BusDetailsStatus>() {
-                                        @Override
-                                        public void onResponse(BusDetailsStatus busDetailsStatus) {
-                                            // Deal with the DummyObject here
-                                            // mProgressBar.setVisibility(View.GONE);
-                                            // mContent.setVisibility(View.VISIBLE);
-                                            setData(busDetailsStatus);
-                                        }
-                                    }
-                                    ,
-                                    new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            // Deal with the error here
-                                            // mProgressBar.setVisibility(View.GONE);
-                                            //mErrorView.setVisibility(View.VISIBLE);
-                                            // SetToast(error);
-                                        }
-                                    }
-                                    ,
-                                    mParams,
-                                    getString(R.string.registrationUrl)
-                            );
-
-
-            App.addRequest(gsonPostRequest, sTag);
-*/
-
-
 
            // intent =new Intent(this,BusesWithFares.class);
          //   startActivity(intent);
         //}
     }
-    private void setData(@NonNull final PaytmBuses paytmBuses) {
-        //mTitle.setText(dummyObject.getPayLoad().get(0).getId());
-       // Log.i("ErrorMessage", "2222" + paytmBuses.getStatusMessage());
-       // Toast.makeText(this, busDetailsStatus.getStatusMessage(), Toast.LENGTH_LONG).show();
+    private List<BusDetails> setDataForPaytm(@NonNull final List<PaytmBuses> paytmBusesList) {
+    List<BusDetails> busList =new ArrayList<BusDetails>();
+        for(int i=0;i<paytmBusesList.size();i++)
+        {
+            BusDetails busDetails =new BusDetails();
+            busDetails.setPaytmDealer("Paytm");
+            busDetails.setPaytmFare(paytmBusesList.get(i).getFare());
+            busDetails.setBusCompanyName(paytmBusesList.get(i).getTravelsName());
+            busDetails.setArrivalTime(paytmBusesList.get(i).getReportingTime());
+            busList.add(busDetails);
+        }
+        return busList;
     }
 }

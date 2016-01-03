@@ -1,7 +1,9 @@
 package com.pawan.buspricecomparison;
 
 
-public class BusDetails {
+import java.io.Serializable;
+
+public class BusDetails implements Serializable{
 
     private String busId;
     private String busName;
@@ -13,19 +15,20 @@ public class BusDetails {
     private String paytmDealer;
     private String redBusDealer;
     private String makeMyTripDealer;
-    private Float paytmFare;
-    private Float redBusFare;
-    private Float makeMyTripFare;
+    private String paytmFare;
+    private String redBusFare;
+    private String makeMyTripFare;
 
 
-    public BusDetails(){
+    public BusDetails() {
     }
+
     public BusDetails(String busId, String busName, String sourceCity,
                       String destinationCity, String arrivalTime, String reachingTime,
                       String busCompanyName,
-                      String paytmDealer, Float paytmFare,
-                      String redBusDealer,  Float redBusFare,
-                      String makeMyTripDealer, Float makeMyTripFare) {
+                      String paytmDealer, String paytmFare,
+                      String redBusDealer, String redBusFare,
+                      String makeMyTripDealer, String makeMyTripFare) {
         this.busId = busId;
         this.busName = busName;
         this.sourceCity = sourceCity;
@@ -45,51 +48,103 @@ public class BusDetails {
         return busId;
     }
 
+    public void setBusId(String busId) {
+        this.busId = busId;
+    }
+
     public String getBusName() {
         return busName;
+    }
+
+    public void setBusName(String busName) {
+        this.busName = busName;
     }
 
     public String getSourceCity() {
         return sourceCity;
     }
 
+    public void setSourceCity(String sourceCity) {
+        this.sourceCity = sourceCity;
+    }
+
     public String getDestinationCity() {
         return destinationCity;
+    }
+
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
     }
 
     public String getArrivalTime() {
         return arrivalTime;
     }
 
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
     public String getReachingTime() {
         return reachingTime;
+    }
+
+    public void setReachingTime(String reachingTime) {
+        this.reachingTime = reachingTime;
     }
 
     public String getBusCompanyName() {
         return busCompanyName;
     }
 
+    public void setBusCompanyName(String busCompanyName) {
+        this.busCompanyName = busCompanyName;
+    }
+
     public String getPaytmDealer() {
         return paytmDealer;
+    }
+
+    public void setPaytmDealer(String paytmDealer) {
+        this.paytmDealer = paytmDealer;
     }
 
     public String getRedBusDealer() {
         return redBusDealer;
     }
 
+    public void setRedBusDealer(String redBusDealer) {
+        this.redBusDealer = redBusDealer;
+    }
+
     public String getMakeMyTripDealer() {
         return makeMyTripDealer;
     }
 
-    public Float getPaytmFare() {
+    public void setMakeMyTripDealer(String makeMyTripDealer) {
+        this.makeMyTripDealer = makeMyTripDealer;
+    }
+
+    public String getPaytmFare() {
         return paytmFare;
     }
 
-    public Float getRedBusFare() {
+    public void setPaytmFare(String paytmFare) {
+        this.paytmFare = paytmFare;
+    }
+
+    public String getRedBusFare() {
         return redBusFare;
     }
 
-    public Float getMakeMyTripFare() {
+    public void setRedBusFare(String redBusFare) {
+        this.redBusFare = redBusFare;
+    }
+
+    public String getMakeMyTripFare() {
         return makeMyTripFare;
+    }
+
+    public void setMakeMyTripFare(String makeMyTripFare) {
+        this.makeMyTripFare = makeMyTripFare;
     }
 }
