@@ -12,9 +12,11 @@ public class BusDetails implements Serializable{
     private String arrivalTime;
     private String reachingTime;
     private String busCompanyName;
+    private String cleartripDealer;
     private String paytmDealer;
     private String redBusDealer;
     private String makeMyTripDealer;
+    private String cleartripFare;
     private String paytmFare;
     private String redBusFare;
     private String makeMyTripFare;
@@ -146,5 +148,21 @@ public class BusDetails implements Serializable{
 
     public void setMakeMyTripFare(String makeMyTripFare) {
         this.makeMyTripFare = makeMyTripFare;
+    }
+
+    public String getCleartripDealer() {
+        return cleartripDealer;
+    }
+
+    public void setCleartripDealer(String cleartripDealer) {
+        this.cleartripDealer = cleartripDealer;
+    }
+
+    public String getCleartripFare() {
+        return cleartripFare;
+    }
+
+    public void setCleartripFare(String cleartripFare) {
+        this.cleartripFare = cleartripFare;
     }
 }

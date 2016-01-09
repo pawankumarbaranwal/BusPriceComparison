@@ -7,13 +7,10 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.pawan.buspricecomparison.BuildConfig;
-import com.pawan.buspricecomparison.BusDetails;
-import com.pawan.buspricecomparison.BusDetailsDeserializer;
 
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.pawan.buspricecomparison.BusDetailsStatus;
+import com.pawan.pojo.ClearTripBus;
 import com.pawan.pojo.PaytmBuses;
 
 import java.util.HashMap;
@@ -37,23 +34,24 @@ public class ApiRequests
      *
      * @return {@link GsonGetRequest}
      */
-  /*  public static GsonGetRequest<CityCodes> getDummyObject
+    public static GsonGetRequest<List<ClearTripBus>> getObject
+
     (
-            @NonNull final Response.Listener<CityCodes> listener,
+            String url,
+            @NonNull final Response.Listener<List<ClearTripBus>> listener,
             @NonNull final Response.ErrorListener errorListener
     )
     {
-        //final String url = BuildConfig.apiDomainName + "/v2/55973508b0e9e4a71a02f05f";
-        final String url = "http://www.makemytrip.com/new_hlp/busmap/?code=1092";
-        return new GsonGetRequest<>
+
+        return new GsonGetRequest<List<ClearTripBus>>
                 (
                         url,
-                        new TypeToken<CityCodes>() {}.getType(),
+                        new TypeToken<List<ClearTripBus>>() {}.getType(),
                         gson,
                         listener,
                         errorListener
                 );
-    }*/
+    }
 
     /**
      * Returns a dummy object's array

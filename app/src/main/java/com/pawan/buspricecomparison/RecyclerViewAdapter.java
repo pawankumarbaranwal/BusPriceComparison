@@ -34,8 +34,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.redbusDealer.setText(busDetails.getRedBusDealer());
         holder.redbusPrice.setText(busDetails.getRedBusFare()+"");
 
-        holder.makemytripDealer.setText(busDetails.getMakeMyTripDealer());
-        holder.makemytripPrice.setText(busDetails.getMakeMyTripFare()+"");
+        holder.cleartripDealer.setText(busDetails.getCleartripDealer());
+        holder.cleartripPrice.setText(busDetails.getCleartripFare()+"");
 
     }
     @Override
@@ -55,8 +55,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private TextView paytmPrice;
         private TextView redbusDealer;
         private TextView redbusPrice;
-        private TextView makemytripDealer;
-        private TextView makemytripPrice;
+        private TextView cleartripDealer;
+        private TextView cleartripPrice;
 
         public BusViewHolder(View itemView) {
             super(itemView);
@@ -66,8 +66,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             paytmPrice=(TextView)itemView.findViewById(R.id.tv_paytm_price);
             redbusDealer=(TextView)itemView.findViewById(R.id.tv_redbus_dealer);
             redbusPrice=(TextView)itemView.findViewById(R.id.tv_redbus_price);
-            makemytripDealer=(TextView)itemView.findViewById(R.id.tv_makemytrip_dealer);
-            makemytripPrice=(TextView)itemView.findViewById(R.id.tv_makemytrip_price);
+            cleartripDealer=(TextView)itemView.findViewById(R.id.tv_cleartrip_dealer);
+            cleartripPrice=(TextView)itemView.findViewById(R.id.tv_cleartrip_price);
             //  arrivalTime=(TextView)itemView.findViewById(R.id.tvArrivalTime);
         }
     }

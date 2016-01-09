@@ -852,5 +852,6 @@
         </string-array>
     <string name="title_activity_buses_with_fares">BusesWithFares</string>
         <string name="paytmPostUrl">https://tickets.paytm.com/search</string>
+        <string name="clearTripUrl">http://www.cleartrip.com/buses/search?</string>
 
 </resources>
