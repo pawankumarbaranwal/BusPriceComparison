@@ -26,16 +26,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(RecyclerViewAdapter.BusViewHolder holder, int position) {
         BusDetails busDetails= busDetailsList.get(position);
         holder.busTravellerName.setText(busDetails.getBusCompanyName());
-        holder.busTiming.setText(busDetails.getArrivalTime());
+        holder.busTiming.setText(busDetails.getArrivalTime()+" : "+busDetails.getReachingTime());
 
         holder.paytmDealer.setText(busDetails.getPaytmDealer());
-        holder.paytmPrice.setText(busDetails.getPaytmFare()+"");
+        holder.paytmPrice.setText(busDetails.getPaytmFare());
 
         holder.redbusDealer.setText(busDetails.getRedBusDealer());
-        holder.redbusPrice.setText(busDetails.getRedBusFare()+"");
+        holder.redbusPrice.setText(busDetails.getRedBusFare());
 
         holder.cleartripDealer.setText(busDetails.getCleartripDealer());
-        holder.cleartripPrice.setText(busDetails.getCleartripFare()+"");
+        holder.cleartripPrice.setText(busDetails.getCleartripFare());
 
     }
     @Override

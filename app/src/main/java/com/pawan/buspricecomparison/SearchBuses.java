@@ -1,6 +1,8 @@
 package com.pawan.buspricecomparison;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Network;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -13,17 +15,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.pawan.pojo.ClearTripBus;
 import com.pawan.pojo.PaytmBuses;
 
-import org.json.JSONException;
-
 import java.io.Serializable;
-import java.io.StringReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,8 +28,11 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 public class SearchBuses extends AppCompatActivity implements View.OnClickListener {
@@ -48,7 +48,6 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
     List<BusDetails> allBuses =new ArrayList<BusDetails>();
     final boolean[] finished = {false};
     Object mLock=new Object();
-
 
 
     @Override
@@ -138,12 +137,14 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
         } else if (view == search) {
 
             //paytmRequest();
-            cleartipRequest();
+           cleartipRequest();
 
             /*paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
             startActivity(paytmIntent);*/
 
-         /*   mParams.put("count", "1");
+           // RequestQueue serialRequestQueue=p
+
+            /*mParams.put("count", "1");
             mParams.put("date", date.getText() + "");
             mParams.put("destination", destination.getText() + "");
             mParams.put("source", source.getText() + "");
@@ -182,8 +183,8 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
 
 
             Log.i("Outside ClearTrip", "3333333");
-        }*/
-            /*final GsonPostRequest<PaytmBuses[]> gsonPostRequest =
+        }
+            final GsonPostRequest<PaytmBuses[]> gsonPostRequest =
                     ApiRequests.getPayObjectArrayWithPost
                             (
                                     new Response.Listener<PaytmBuses[]>() {
@@ -224,9 +225,8 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
                                     getString(R.string.paytmPostUrl)
                             );
 
-            App.addRequest(gsonPostRequest, "tagPay");
-        }
-*/
+            App.addRequest(gsonPostRequest, "tagPay");*/
+        //}
 /*
   else {
             //Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
@@ -269,13 +269,10 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
 
 
 
-                                            setDataForPaytm(paytmBusesList);
+                                        setDataForPaytm(paytmBusesList);
                                         paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
                                         startActivity(paytmIntent);
 
-                                        //intent =new Intent(this,BusesWithFares.class);
-                                        //            paytmIntent.putExtra("PaytmBusesList", (Serializable) (setDataForPaytm(paytmBusesList)));
-                                        //             startActivity(paytmIntent);
 
                                     }
                                 }
@@ -287,6 +284,8 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
                                         // mProgressBar.setVisibility(View.GONE);
                                         //mErrorView.setVisibility(View.VISIBLE);
                                         Log.i("ErrorMessage", "4");
+                                        paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
+                                        startActivity(paytmIntent);
                                         //setToast(error);
 
                                     }
@@ -316,8 +315,9 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
 
                         //     paytmIntent.putExtra("ClearTripBusesList", (Serializable) (setDataForClearTrip(clearTripBuses)));
                         //    startActivity(paytmIntent);
-                        paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
-                        startActivity(paytmIntent);
+                        //paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
+                        ///startActivity(paytmIntent);
+                        paytmRequest();
                     }
                 }
                 ,
@@ -349,43 +349,92 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
         for(int i=0;i<clearTripBuses.size();i++)
         {
 
-            long time=Long.parseLong(clearTripBuses.get(i).getAt());
+            long rTime=Long.parseLong(clearTripBuses.get(i).getAt());
+            long dTime=Long.parseLong(clearTripBuses.get(i).getDt());
 
             SimpleDateFormat sdf = new SimpleDateFormat("HH-mm");
 
             //Converting milliseconds to Date using Calendar
             Calendar cal = Calendar.getInstance();
-            cal.setTimeInMillis(time);
+            cal.setTimeInMillis(dTime);
 
             BusDetails busDetails =new BusDetails();
             busDetails.setCleartripDealer("ClearTrip");
-            busDetails.setSourceCity(source.getText()+"");
-            busDetails.setDestinationCity(destination.getText()+"");
-            busDetails.setArrivalTime(clearTripDate);
+            busDetails.setSourceCity(source.getText() + "");
+            busDetails.setDestinationCity(destination.getText() + "");
             busDetails.setCleartripFare(clearTripBuses.get(i).getCv().getF());
             busDetails.setBusCompanyName(clearTripBuses.get(i).getCv().getOn());
             busDetails.setArrivalTime(sdf.format(cal.getTime()));
+            cal.setTimeInMillis(rTime);
+            busDetails.setReachingTime(sdf.format(cal.getTime()));
             busList.add(busDetails);
         }
         allBuses.addAll(busList);
         return busList;
     }
 
-    private List<BusDetails> setDataForPaytm(@NonNull final List<PaytmBuses> paytmBusesList) {
+    private void setDataForPaytm(@NonNull final List<PaytmBuses> paytmBusesList) {
     List<BusDetails> busList =new ArrayList<BusDetails>();
+    boolean var =false;
+        List<BusDetails> removeAll=new ArrayList<BusDetails>();
+        List<BusDetails> addAll =new ArrayList<BusDetails>();
 
-        Log.i("Insidepaytm", "4444444");
-        for(int i=0;i<paytmBusesList.size();i++)
-        {
-            BusDetails busDetails =new BusDetails();
-            busDetails.setPaytmDealer("Paytm");
-            busDetails.setPaytmFare(paytmBusesList.get(i).getFare());
-            busDetails.setBusCompanyName(paytmBusesList.get(i).getTravelsName());
-            busDetails.setArrivalTime(paytmBusesList.get(i).getReportingTime());
-            busList.add(busDetails);
+
+        for (BusDetails busDetails : allBuses) {
+            Log.i("Size",allBuses.size()+"");
+            BusDetails bus=new BusDetails();
+            innerloop:
+            for (PaytmBuses paytmBuses : paytmBusesList) {
+                var =false;
+                String arrivalTime=paytmBuses.getDepartureTime().substring(0, 2)+"-"+paytmBuses.getDepartureTime().substring(2, 4);
+                String reachingTime=paytmBuses.getArrivalTime().substring(0, 2)+"-"+paytmBuses.getArrivalTime().substring(2,4);
+
+
+                bus.setPaytmDealer("Paytm");
+                bus.setSourceCity(source.getText()+"");
+                bus.setDestinationCity(destination.getText() + "");
+                bus.setArrivalTime(arrivalTime);
+                bus.setReachingTime(reachingTime);
+                bus.setPaytmFare(paytmBuses.getFare());
+                bus.setBusCompanyName(paytmBuses.getTravelsName());
+                busList.add(busDetails);
+
+                Log.i("lllllllllll", busDetails.getBusCompanyName() + "");
+                Log.i("lllllllllll", paytmBuses.getTravelsName() + "");
+                Log.i("lllllllllll", busDetails.getArrivalTime() + "");
+                Log.i("lllllllllll", arrivalTime + "");
+                Log.i("lllllllllll", busDetails.getReachingTime() + "");
+                Log.i("lllllllllll", reachingTime + "");
+                 // if ((((busDetails.getBusCompanyName()).replaceAll("\\s+","")).equalsIgnoreCase(((paytmBuses.getTravelsName()).replaceAll("\\s+",""))))&&
+                if ((busDetails.getBusCompanyName().equals(paytmBuses.getTravelsName()))&&
+                        (busDetails.getArrivalTime().equals(arrivalTime))&&
+                        (busDetails.getReachingTime().equals(reachingTime)))
+                {/*
+                    System.out.println(busDetails.getPaytmDealer());
+                    System.out.println(busDetails.getCleartripDealer());
+                    System.out.println(paytmBuses.getPaytmDealer());
+                    System.out.println(paytmBuses.getCleartripDealer());*/
+
+
+                    bus.setCleartripDealer("Cleartrip");
+                    bus.setCleartripFare(busDetails.getCleartripFare());
+                    removeAll.add(busDetails);
+                    addAll.add(bus);
+                    var=true;
+                    break innerloop;
+                }
+            }
+            if (var==false)
+            {
+                addAll.add(bus);
+            }
         }
-
-        allBuses.addAll(busList);
-        return busList;
+        Log.i("removeAllSize",removeAll.size()+"");
+        Log.i("addAllSize",addAll.size()+"");
+        Log.i("Size",allBuses.size()+"");
+        allBuses.removeAll(removeAll);
+        Log.i("Size", allBuses.size() + "");
+        allBuses.addAll(addAll);
+        Log.i("Size", allBuses.size() + "");
     }
 }

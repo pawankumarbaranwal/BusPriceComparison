@@ -15,7 +15,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class BusesWithFares extends AppCompatActivity {
 
@@ -71,8 +75,38 @@ public class BusesWithFares extends AppCompatActivity {
         List<BusDetails> busesList = (List<BusDetails>) i.getSerializableExtra("ClearTripBusesList");
         Log.i("PaytmBuses123", "55555555555" + busesList.size());
 
+
+        Set set = new TreeSet(new Comparator() {
+            @Override
+            public int compare(Object b1, Object b2) {
+                BusDetails bus1 =(BusDetails)b1;
+                BusDetails bus2 =(BusDetails)b2;
+
+
+                if((bus1.getBusCompanyName().equalsIgnoreCase(bus2.getBusCompanyName()))&&
+                        (bus1.getArrivalTime().equalsIgnoreCase(bus2.getArrivalTime()))&&
+                        (bus1.getReachingTime().equalsIgnoreCase(bus2.getReachingTime()))
+                        ){
+                    Log.i("jjjjjjjj", bus1.getBusCompanyName() + "");
+                    Log.i("jjjjjjjj", bus1.getArrivalTime() + "");
+                    Log.i("jjjjjjjj", bus1.getReachingTime() + "");
+                    Log.i("jjjjjjjj", bus2.getBusCompanyName() + "");
+                    Log.i("jjjjjjjj", bus2.getArrivalTime() + "");
+                    Log.i("jjjjjjjj", bus2.getReachingTime() + "");
+
+                    return 0;
+                }
+                return 1;
+            }
+        });
+        set.addAll(busesList);
+
+
  //       sourceAndDestination=busesList.get(1).getSourceCity()+" to "+busesList.get(1).getDestinationCity()+"  -  ";
-        list.addAll(busesList);
+        list.addAll(set);
+
+
+        Collections.sort(list);
         return list;
     }
 }

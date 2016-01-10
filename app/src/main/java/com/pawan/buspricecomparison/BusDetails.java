@@ -3,7 +3,7 @@ package com.pawan.buspricecomparison;
 
 import java.io.Serializable;
 
-public class BusDetails implements Serializable{
+public class BusDetails implements Serializable,Comparable {
 
     private String busId;
     private String busName;
@@ -30,7 +30,7 @@ public class BusDetails implements Serializable{
                       String busCompanyName,
                       String paytmDealer, String paytmFare,
                       String redBusDealer, String redBusFare,
-                      String makeMyTripDealer, String makeMyTripFare) {
+                      String cleartripDealer, String clearTripFare) {
         this.busId = busId;
         this.busName = busName;
         this.sourceCity = sourceCity;
@@ -40,10 +40,10 @@ public class BusDetails implements Serializable{
         this.busCompanyName = busCompanyName;
         this.paytmDealer = paytmDealer;
         this.redBusDealer = redBusDealer;
-        this.makeMyTripDealer = makeMyTripDealer;
+        this.cleartripDealer = cleartripDealer;
         this.paytmFare = paytmFare;
         this.redBusFare = redBusFare;
-        this.makeMyTripFare = makeMyTripFare;
+        this.cleartripFare = clearTripFare;
     }
 
     public String getBusId() {
@@ -164,5 +164,32 @@ public class BusDetails implements Serializable{
 
     public void setCleartripFare(String cleartripFare) {
         this.cleartripFare = cleartripFare;
+    }
+
+    public int hashCode() {
+        return arrivalTime.hashCode() * reachingTime.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        //return true;
+        BusDetails paytmBuses = (BusDetails) obj;
+        if (!this.busCompanyName.equalsIgnoreCase(paytmBuses.getBusCompanyName())) {
+            return false;
+        }
+        if (!this.arrivalTime.equalsIgnoreCase(paytmBuses.getArrivalTime())) {
+            return false;
+        }
+        if (!this.reachingTime.equalsIgnoreCase(paytmBuses.getReachingTime())) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    @Override
+    public int compareTo(Object obj) {
+
+        String companyName=((BusDetails)obj).getBusCompanyName();
+        return (this.busCompanyName.toUpperCase()).compareTo(companyName.toUpperCase());
     }
 }
