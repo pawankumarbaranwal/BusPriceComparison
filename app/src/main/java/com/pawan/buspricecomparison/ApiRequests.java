@@ -16,6 +16,7 @@ import com.pawan.pojo.PaytmBuses;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -34,19 +35,19 @@ public class ApiRequests
      *
      * @return {@link GsonGetRequest}
      */
-    public static GsonGetRequest<List<ClearTripBus>> getObject
+    public static GsonGetRequest<Set<ClearTripBus>> getObject
 
     (
             String url,
-            @NonNull final Response.Listener<List<ClearTripBus>> listener,
+            @NonNull final Response.Listener<Set<ClearTripBus>> listener,
             @NonNull final Response.ErrorListener errorListener
     )
     {
 
-        return new GsonGetRequest<List<ClearTripBus>>
+        return new GsonGetRequest<Set<ClearTripBus>>
                 (
                         url,
-                        new TypeToken<List<ClearTripBus>>() {}.getType(),
+                        new TypeToken<Set<ClearTripBus>>() {}.getType(),
                         gson,
                         listener,
                         errorListener

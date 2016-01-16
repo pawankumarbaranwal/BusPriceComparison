@@ -73,7 +73,7 @@ public class BusesWithFares extends AppCompatActivity {
         list.add(busDetails);*/
         Intent i = getIntent();
         List<BusDetails> busesList = (List<BusDetails>) i.getSerializableExtra("ClearTripBusesList");
-        Log.i("PaytmBuses123", "55555555555" + busesList.size());
+        Log.i("PaytmBuses123", "" + busesList.size());
 
 
         Set set = new TreeSet(new Comparator() {
@@ -102,11 +102,12 @@ public class BusesWithFares extends AppCompatActivity {
         set.addAll(busesList);
 
 
- //       sourceAndDestination=busesList.get(1).getSourceCity()+" to "+busesList.get(1).getDestinationCity()+"  -  ";
+        sourceAndDestination=busesList.get(1).getSourceCity()+" to "+busesList.get(1).getDestinationCity()+"  -  ";
         list.addAll(set);
 
 
         Collections.sort(list);
+        Log.i("Set Size", set.size() + "");
         return list;
     }
 }

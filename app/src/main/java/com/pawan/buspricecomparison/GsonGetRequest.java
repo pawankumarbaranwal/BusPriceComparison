@@ -21,8 +21,10 @@ import java.io.FileReader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Makes a get request and converts the response from JsonElement into a
@@ -81,7 +83,7 @@ public class GsonGetRequest<T> extends Request<T>
             Log.d("GetResponse", s.substring(1,10));
 
             Gson gson = new Gson();
-            List<ClearTripBus> busList = new ArrayList<ClearTripBus>();
+            Set<ClearTripBus> busList = new HashSet<ClearTripBus>();
             Type mapType = new TypeToken<Map<String,ClearTripBus>>() {}.getType();
             Map<String, ClearTripBus> map = gson.fromJson(jobject.toString(), mapType);
             //System.out.println(map);

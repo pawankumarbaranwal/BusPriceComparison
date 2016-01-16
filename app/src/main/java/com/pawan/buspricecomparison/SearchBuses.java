@@ -302,11 +302,11 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
 
         final Intent paytmIntent = new Intent(this, BusesWithFares.class);
         Log.i("iiiiiiiiiiiiiiiii", getString(R.string.clearTripUrl) + "from=" + source.getText() + "&to=" + destination.getText() + "&date=" + clearTripDate);
-        final GsonGetRequest<List<ClearTripBus>> gsonGetRequest = ApiRequests.getObject(
+        final GsonGetRequest<Set<ClearTripBus>> gsonGetRequest = ApiRequests.getObject(
                 getString(R.string.clearTripUrl) + "from=" + source.getText() + "&to=" + destination.getText() + "&date=" + clearTripDate,
-                new Response.Listener<List<ClearTripBus>>() {
+                new Response.Listener<Set<ClearTripBus>>() {
                     @Override
-                    public void onResponse(List<ClearTripBus> clearTripBuses) {
+                    public void onResponse(Set<ClearTripBus> clearTripBuses) {
                         // Deal with the DummyObject here
                         // mProgressBar.setVisibility(View.GONE);
                         // mContent.setVisibility(View.VISIBLE);
@@ -341,36 +341,35 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
     }
 
 
-    private List<BusDetails> setDataForClearTrip(List<ClearTripBus> clearTripBuses) {
+    private void setDataForClearTrip(Set<ClearTripBus> clearTripBuses) {
 
 
         Log.i("Insidecleartip", "4444444");
         List<BusDetails> busList =new ArrayList<BusDetails>();
-        for(int i=0;i<clearTripBuses.size();i++)
-        {
+        /*for(int i=0;i<clearTripBuses.size();i++)
+        {*/
+            for (ClearTripBus c : clearTripBuses) {
 
-            long rTime=Long.parseLong(clearTripBuses.get(i).getAt());
-            long dTime=Long.parseLong(clearTripBuses.get(i).getDt());
+                long rTime = Long.parseLong(c.getAt());
+                long dTime = Long.parseLong(c.getDt());
 
-            SimpleDateFormat sdf = new SimpleDateFormat("HH-mm");
+                SimpleDateFormat sdf = new SimpleDateFormat("HH-mm");
 
-            //Converting milliseconds to Date using Calendar
-            Calendar cal = Calendar.getInstance();
-            cal.setTimeInMillis(dTime);
+                //Converting milliseconds to Date using Calendar
+                Calendar cal = Calendar.getInstance();
+                cal.setTimeInMillis(dTime);
 
-            BusDetails busDetails =new BusDetails();
-            busDetails.setCleartripDealer("ClearTrip");
-            busDetails.setSourceCity(source.getText() + "");
-            busDetails.setDestinationCity(destination.getText() + "");
-            busDetails.setCleartripFare(clearTripBuses.get(i).getCv().getF());
-            busDetails.setBusCompanyName(clearTripBuses.get(i).getCv().getOn());
-            busDetails.setArrivalTime(sdf.format(cal.getTime()));
-            cal.setTimeInMillis(rTime);
-            busDetails.setReachingTime(sdf.format(cal.getTime()));
-            busList.add(busDetails);
-        }
-        allBuses.addAll(busList);
-        return busList;
+                BusDetails busDetails = new BusDetails();
+                busDetails.setCleartripDealer("ClearTrip");
+                busDetails.setSourceCity(source.getText() + "");
+                busDetails.setDestinationCity(destination.getText() + "");
+                busDetails.setCleartripFare(c.getCv().getF());
+                busDetails.setBusCompanyName(c.getCv().getOn());
+                busDetails.setArrivalTime(sdf.format(cal.getTime()));
+                cal.setTimeInMillis(rTime);
+                busDetails.setReachingTime(sdf.format(cal.getTime()));
+                allBuses.add(busDetails);
+            }
     }
 
     private void setDataForPaytm(@NonNull final List<PaytmBuses> paytmBusesList) {
@@ -378,63 +377,87 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
     boolean var =false;
         List<BusDetails> removeAll=new ArrayList<BusDetails>();
         List<BusDetails> addAll =new ArrayList<BusDetails>();
+        List<BusDetails> finalPaytmBusesList =new ArrayList<BusDetails>();
 
 
+        for (PaytmBuses paytmBuses:paytmBusesList)
+        {
+            String arrivalTime=paytmBuses.getDepartureTime().substring(0, 2)+"-"+paytmBuses.getDepartureTime().substring(2, 4);
+            String reachingTime=paytmBuses.getArrivalTime().substring(0, 2)+"-"+paytmBuses.getArrivalTime().substring(2,4);
+
+            BusDetails busDetails=new BusDetails();
+            busDetails.setPaytmDealer("Paytm");
+            busDetails.setSourceCity(source.getText() + "");
+            busDetails.setDestinationCity(destination.getText() + "");
+            busDetails.setArrivalTime(arrivalTime);
+            busDetails.setReachingTime(reachingTime);
+            busDetails.setPaytmFare(paytmBuses.getFare());
+            busDetails.setBusCompanyName(paytmBuses.getTravelsName());
+            finalPaytmBusesList.add(busDetails);
+
+        }
+
+        int i=0;
         for (BusDetails busDetails : allBuses) {
-            Log.i("Size",allBuses.size()+"");
+            var=false;
+            i++;
             BusDetails bus=new BusDetails();
             innerloop:
-            for (PaytmBuses paytmBuses : paytmBusesList) {
-                var =false;
-                String arrivalTime=paytmBuses.getDepartureTime().substring(0, 2)+"-"+paytmBuses.getDepartureTime().substring(2, 4);
+            for (BusDetails paytmBuses : finalPaytmBusesList) {
+
+         /*       String arrivalTime=paytmBuses.getDepartureTime().substring(0, 2)+"-"+paytmBuses.getDepartureTime().substring(2, 4);
                 String reachingTime=paytmBuses.getArrivalTime().substring(0, 2)+"-"+paytmBuses.getArrivalTime().substring(2,4);
 
 
                 bus.setPaytmDealer("Paytm");
-                bus.setSourceCity(source.getText()+"");
+                bus.setSourceCity(source.getText() + "");
                 bus.setDestinationCity(destination.getText() + "");
                 bus.setArrivalTime(arrivalTime);
                 bus.setReachingTime(reachingTime);
                 bus.setPaytmFare(paytmBuses.getFare());
-                bus.setBusCompanyName(paytmBuses.getTravelsName());
-                busList.add(busDetails);
+                bus.setBusCompanyName(paytmBuses.getTravelsName());*/
+                //busList.add(busDetails);
 
-                Log.i("lllllllllll", busDetails.getBusCompanyName() + "");
+                /*Log.i("lllllllllll", busDetails.getBusCompanyName() + "");
                 Log.i("lllllllllll", paytmBuses.getTravelsName() + "");
                 Log.i("lllllllllll", busDetails.getArrivalTime() + "");
                 Log.i("lllllllllll", arrivalTime + "");
                 Log.i("lllllllllll", busDetails.getReachingTime() + "");
-                Log.i("lllllllllll", reachingTime + "");
+                Log.i("lllllllllll", reachingTime + "");*/
                  // if ((((busDetails.getBusCompanyName()).replaceAll("\\s+","")).equalsIgnoreCase(((paytmBuses.getTravelsName()).replaceAll("\\s+",""))))&&
-                if ((busDetails.getBusCompanyName().equals(paytmBuses.getTravelsName()))&&
-                        (busDetails.getArrivalTime().equals(arrivalTime))&&
-                        (busDetails.getReachingTime().equals(reachingTime)))
-                {/*
-                    System.out.println(busDetails.getPaytmDealer());
-                    System.out.println(busDetails.getCleartripDealer());
-                    System.out.println(paytmBuses.getPaytmDealer());
-                    System.out.println(paytmBuses.getCleartripDealer());*/
-
-
-                    bus.setCleartripDealer("Cleartrip");
-                    bus.setCleartripFare(busDetails.getCleartripFare());
+                if ((busDetails.getBusCompanyName().equals(paytmBuses.getBusCompanyName()))&&
+                        (busDetails.getArrivalTime().equals(paytmBuses.getArrivalTime()))&&
+                        (busDetails.getReachingTime().equals(paytmBuses.getReachingTime())))
+                {
+                   // Log.i("ssssssssize","inerting in add all"+i);
+                    paytmBuses.setCleartripDealer("Cleartrip");
+                    paytmBuses.setCleartripFare(busDetails.getCleartripFare());
                     removeAll.add(busDetails);
-                    addAll.add(bus);
+                    //addAll.add(bus);
                     var=true;
                     break innerloop;
                 }
+
             }
-            if (var==false)
+            Log.i("ssssssssizee", var + ""+i);
+            //Log.i("ssssssssize", paytmBusesList.size() + "");
+            if(var==false)
             {
-                addAll.add(bus);
+                Log.i("ssssssssize","inerting in var");
+                addAll.add(busDetails);
             }
         }
-        Log.i("removeAllSize",removeAll.size()+"");
-        Log.i("addAllSize",addAll.size()+"");
-        Log.i("Size",allBuses.size()+"");
-        allBuses.removeAll(removeAll);
-        Log.i("Size", allBuses.size() + "");
+        Log.i("CleartripSize", allBuses.size() + "");
+        Log.i("PaytmSize",paytmBusesList.size()+"");
+        Log.i("removeAllSize", removeAll.size() + "");
+        Log.i("addAllSize", addAll.size() + "");
+        //allBuses.removeAll(removeAll);
+
+        allBuses=new ArrayList<BusDetails>();
+        Log.i("Add all Size", allBuses.size() + "");
+        allBuses.addAll(finalPaytmBusesList);
+        Log.i("After Paytm Size", allBuses.size() + "");
         allBuses.addAll(addAll);
-        Log.i("Size", allBuses.size() + "");
+        Log.i("After Cleatrip Size", allBuses.size() + "");
     }
 }
