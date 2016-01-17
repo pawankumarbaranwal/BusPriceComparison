@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,23 +11,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.pawan.buspricecomparison.SourceCities"
-    tools:showIn="@layout/activity_search_buses">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_src_and_destination"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mumbai to Bangalore"
-        android:gravity="center"
-        />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_src_and_destination"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Mumbai to Bangalore"
+            android:layout_weight="2"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/tv_search_date"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="cdccds"
+            android:gravity="center"
+            />
+    </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/buslist"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_src_and_destination"
-        >
-    </android.support.v7.widget.RecyclerView>
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/buslist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_src_and_destination" >
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

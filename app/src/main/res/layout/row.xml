@@ -3,20 +3,25 @@
     android:layout_height="wrap_content"
     android:layout_margin="2dp">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TableRow
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/tv_bus_traveller_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:gravity="left"
                 android:layout_weight="2"
+                android:layout_marginLeft="10dp"
                 android:text="Bus Traveller Name" />
 
 
@@ -24,66 +29,65 @@
                 android:id="@+id/tv_bus_timing"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:layout_marginLeft="2dp"
                 android:text="Bus Timings" />
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_paytm_dealer"
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="Paytm" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_redbus_dealer"
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/paytm" />
+
+                <TextView
+                    android:id="@+id/tv_paytm_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="1300" />
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="RedBus" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_cleartrip_dealer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="MakeMyTrip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_paytm_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1200" />
-
-            <TextView
-                android:id="@+id/tv_redbus_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1290" />
-
-            <TextView
-                android:id="@+id/tv_cleartrip_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1300" />
-        </TableRow>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/clearrtip" />
 
 
-    </TableLayout>
+                <TextView
+                    android:id="@+id/tv_cleartrip_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="1300" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
 </android.support.v7.widget.CardView>
 

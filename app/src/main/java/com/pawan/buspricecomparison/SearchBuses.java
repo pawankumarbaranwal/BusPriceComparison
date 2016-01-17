@@ -1,8 +1,6 @@
 package com.pawan.buspricecomparison;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Network;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -136,111 +134,8 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
             startActivityForResult(intent, 3);
         } else if (view == search) {
 
-            //paytmRequest();
            cleartipRequest();
-
-            /*paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
-            startActivity(paytmIntent);*/
-
-           // RequestQueue serialRequestQueue=p
-
-            /*mParams.put("count", "1");
-            mParams.put("date", date.getText() + "");
-            mParams.put("destination", destination.getText() + "");
-            mParams.put("source", source.getText() + "");
-
-
-            Log.i("iiiiiiiiiiiiiiiii", getString(R.string.clearTripUrl) + "from=" + source.getText() + "&to=" + destination.getText() + "&date=" + clearTripDate);
-            final GsonGetRequest<List<ClearTripBus>> gsonGetRequest = ApiRequests.getObject(
-                    getString(R.string.clearTripUrl) + "from=" + source.getText() + "&to=" + destination.getText() + "&date=" + clearTripDate,
-                    new Response.Listener<List<ClearTripBus>>() {
-                        @Override
-                        public void onResponse(List<ClearTripBus> clearTripBuses) {
-                            // Deal with the DummyObject here
-                            // mProgressBar.setVisibility(View.GONE);
-                            // mContent.setVisibility(View.VISIBLE);
-                            Log.i("SuccessMessage", "" + clearTripBuses.size());
-                            setDataForClearTrip(clearTripBuses);
-                            //     paytmIntent.putExtra("ClearTripBusesList", (Serializable) (setDataForClearTrip(clearTripBuses)));
-                            //    startActivity(paytmIntent);
-
-                        }
-                    }
-                    ,
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // Deal with the error here
-                            // mProgressBar.setVisibility(View.GONE);
-                            //mErrorView.setVisibility(View.VISIBLE);
-                            Log.i("ErrorMessage", "4");
-                            //setToast(error);
-                        }
-                    }
-            );
-            //gsonGetRequest.setPriority(Request.Priority.IMMEDIATE);
-            App.addRequest(gsonGetRequest, "tagPay");
-
-
-            Log.i("Outside ClearTrip", "3333333");
-        }
-            final GsonPostRequest<PaytmBuses[]> gsonPostRequest =
-                    ApiRequests.getPayObjectArrayWithPost
-                            (
-                                    new Response.Listener<PaytmBuses[]>() {
-                                        @Override
-                                        public void onResponse(PaytmBuses[] paytmBuses) {
-                                            // Deal with the DummyObject here
-                                            // mProgressBar.setVisibility(View.GONE);
-                                            // mContent.setVisibility(View.VISIBLE);
-                                            Log.i("SuccessMessage", "3" + paytmBuses);
-                                            List<PaytmBuses> paytmBusesList = Arrays.asList(paytmBuses);
-                                            for (int i = 0; i < paytmBusesList.size(); i++) {
-                                                PaytmBuses p = paytmBusesList.get(i);
-                                                Log.i("PaytmBuses", "3333333" + p.getFare());
-                                                Log.i("PaytmBuses", "3333333" + p.getAvalableSeats());
-                                            }
-
-                                            setDataForPaytm(paytmBusesList);
-
-                                            //intent =new Intent(this,BusesWithFares.class);
-                                            //            paytmIntent.putExtra("PaytmBusesList", (Serializable) (setDataForPaytm(paytmBusesList)));
-                                            //             startActivity(paytmIntent);
-
-                                        }
-                                    }
-                                    ,
-                                    new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            // Deal with the error here
-                                            // mProgressBar.setVisibility(View.GONE);
-                                            //mErrorView.setVisibility(View.VISIBLE);
-                                            Log.i("ErrorMessage", "4");
-                                            //setToast(error);
-                                        }
-                                    }
-                                    ,
-                                    mParams,
-                                    getString(R.string.paytmPostUrl)
-                            );
-
-            App.addRequest(gsonPostRequest, "tagPay");*/
-        //}
-/*
-  else {
-            //Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
-        }
-*/
-
-            // intent =new Intent(this,BusesWithFares.class);
-            //   startActivity(intent);
-            //}
-        /*if (allBuses.size()!=0) {
-            Log.i("Outside Paytm", "4444444");
-            startActivity(paytmIntent);
-            paytmIntent.putExtra("ClearTripBusesList", (Serializable) (allBuses));
-        }*/
+           //paytmRequest();
         }
     }
     private void paytmRequest(){
@@ -271,6 +166,9 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
 
                                         setDataForPaytm(paytmBusesList);
                                         paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
+                                        paytmIntent.putExtra("Date", date.getText()+"");
+                                        paytmIntent.putExtra("SRCandDSN", source.getText()+" to "+destination.getText());
+
                                         startActivity(paytmIntent);
 
 
@@ -285,6 +183,10 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
                                         //mErrorView.setVisibility(View.VISIBLE);
                                         Log.i("ErrorMessage", "4");
                                         paytmIntent.putExtra("ClearTripBusesList", (Serializable) allBuses);
+                                        paytmIntent.putExtra("Date", date.getText()+"");
+                                        paytmIntent.putExtra("SRCandDSN", source.getText()+" to "+destination.getText());
+                                        Log.i("oooooooo", source.getText()+" to "+destination.getText() + "");
+
                                         startActivity(paytmIntent);
                                         //setToast(error);
 
@@ -335,14 +237,11 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
         );
         //gsonGetRequest.setPriority(Request.Priority.IMMEDIATE);
         App.addRequest(gsonGetRequest, "tagPay");
-
-
         Log.i("Outside ClearTrip", "3333333");
     }
 
 
     private void setDataForClearTrip(Set<ClearTripBus> clearTripBuses) {
-
 
         Log.i("Insidecleartip", "4444444");
         List<BusDetails> busList =new ArrayList<BusDetails>();
@@ -392,6 +291,8 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
             busDetails.setArrivalTime(arrivalTime);
             busDetails.setReachingTime(reachingTime);
             busDetails.setPaytmFare(paytmBuses.getFare());
+            busDetails.setSourceCity(source.getText() + "");
+            busDetails.setDestinationCity(destination.getText() + "");
             busDetails.setBusCompanyName(paytmBuses.getTravelsName());
             finalPaytmBusesList.add(busDetails);
 
@@ -437,7 +338,6 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
                     var=true;
                     break innerloop;
                 }
-
             }
             Log.i("ssssssssizee", var + ""+i);
             //Log.i("ssssssssize", paytmBusesList.size() + "");

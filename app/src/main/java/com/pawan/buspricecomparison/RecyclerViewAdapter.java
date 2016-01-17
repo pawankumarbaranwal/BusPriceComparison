@@ -28,16 +28,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.busTravellerName.setText(busDetails.getBusCompanyName());
         holder.busTiming.setText(busDetails.getArrivalTime()+" : "+busDetails.getReachingTime());
 
-        holder.paytmDealer.setText(busDetails.getPaytmDealer());
+        //holder.paytmDealer.setText(busDetails.getPaytmDealer());
         holder.paytmPrice.setText(busDetails.getPaytmFare());
 
-        holder.redbusDealer.setText(busDetails.getRedBusDealer());
-        holder.redbusPrice.setText(busDetails.getRedBusFare());
+        //holder.redbusDealer.setText(busDetails.getRedBusDealer());
+        //holder.redbusPrice.setText(busDetails.getRedBusFare());
 
-        holder.cleartripDealer.setText(busDetails.getCleartripDealer());
+//        holder.cleartripDealer.setText(busDetails.getCleartripDealer());
         holder.cleartripPrice.setText(busDetails.getCleartripFare());
 
-    }
+      }
     @Override
     public RecyclerViewAdapter.BusViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).
@@ -62,11 +62,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             busTravellerName=(TextView)itemView.findViewById(R.id.tv_bus_traveller_name);
             busTiming=(TextView)itemView.findViewById(R.id.tv_bus_timing);
-            paytmDealer=(TextView)itemView.findViewById(R.id.tv_paytm_dealer);
+            //paytmDealer=(TextView)itemView.findViewById(R.id.tv_paytm_dealer);
             paytmPrice=(TextView)itemView.findViewById(R.id.tv_paytm_price);
-            redbusDealer=(TextView)itemView.findViewById(R.id.tv_redbus_dealer);
-            redbusPrice=(TextView)itemView.findViewById(R.id.tv_redbus_price);
-            cleartripDealer=(TextView)itemView.findViewById(R.id.tv_cleartrip_dealer);
+            //redbusDealer=(TextView)itemView.findViewById(R.id.tv_redbus_dealer);
+            //redbusPrice=(TextView)itemView.findViewById(R.id.tv_redbus_price);
+            //cleartripDealer=(TextView)itemView.findViewById(R.id.tv_cleartrip_dealer);
             cleartripPrice=(TextView)itemView.findViewById(R.id.tv_cleartrip_price);
             //  arrivalTime=(TextView)itemView.findViewById(R.id.tvArrivalTime);
         }
