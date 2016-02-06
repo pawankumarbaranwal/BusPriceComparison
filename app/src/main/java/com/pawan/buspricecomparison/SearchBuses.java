@@ -326,9 +326,8 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
                 Log.i("lllllllllll", busDetails.getReachingTime() + "");
                 Log.i("lllllllllll", reachingTime + "");*/
                  // if ((((busDetails.getBusCompanyName()).replaceAll("\\s+","")).equalsIgnoreCase(((paytmBuses.getTravelsName()).replaceAll("\\s+",""))))&&
-                if ((busDetails.getBusCompanyName().equals(paytmBuses.getBusCompanyName()))&&
-                        (busDetails.getArrivalTime().equals(paytmBuses.getArrivalTime()))&&
-                        (busDetails.getReachingTime().equals(paytmBuses.getReachingTime())))
+
+                if(compareBuses(busDetails,paytmBuses))
                 {
                    // Log.i("ssssssssize","inerting in add all"+i);
                     paytmBuses.setCleartripDealer("Cleartrip");
@@ -359,5 +358,26 @@ public class SearchBuses extends AppCompatActivity implements View.OnClickListen
         Log.i("After Paytm Size", allBuses.size() + "");
         allBuses.addAll(addAll);
         Log.i("After Cleatrip Size", allBuses.size() + "");
+    }
+
+    private boolean compareBuses(BusDetails busDetails, BusDetails paytmBuses) {
+
+        String cleartripBusCompanyName = (busDetails.getBusCompanyName()).replaceAll("\\s+", " ").replace(".", "").replaceAll("\\(.*?\\) ?", "");//.replace("TRAVELS", "").replace("TOURS", ""));
+        String paytmBusCompanyName = (paytmBuses.getBusCompanyName()).replaceAll("\\s+", " ").replace(".", "").replaceAll("\\(.*?\\) ?", "");//.replace("TRAVELS", "").replace("TOURS", ""));
+
+        Log.i("Cleartrippppppppppppp", cleartripBusCompanyName);
+        Log.i("Paytmaaaaaaaaaaaaa",paytmBusCompanyName);
+
+        if ((cleartripBusCompanyName.equalsIgnoreCase(paytmBusCompanyName)) &&
+                (busDetails.getArrivalTime().equals(paytmBuses.getArrivalTime())) &&
+                (busDetails.getReachingTime().equals(paytmBuses.getReachingTime()))) {
+
+            Log.i("Inside ACleartrip", cleartripBusCompanyName);
+            Log.i("Inside APaytmaaa",paytmBusCompanyName);
+
+            return true;
+        }else {
+            return false;
+        }
     }
 }
